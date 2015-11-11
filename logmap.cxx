@@ -1,10 +1,15 @@
 #include <iostream>
+#include <iostream>
+#include <fstream>
 
 using namespace std;
 
-int main(){
+int main(void){
+	ofstream out("output.dat");
 	double x0 = 0.5;
 	double x;
+	cout << "a = ";  cin >> a;      
+ 	cout << "b = ";  cin >> b;
 	int Nskip = 100; //Number of iterations to skip
 	int Nend  = 200; //Number of total iterations
 
@@ -14,10 +19,10 @@ int main(){
 		   x = r*x*(1-x);
 	   for(int i=Nskip+1; i <= Nend; i++){
 	   		   x = r*x*(1-x);
-	   		   cout << r << "\t" << x << endl;
+	   		   out << r << "\t" << x << endl;
    	   }
 	}
-
-
+	
+	out.close();
 	return 0;
 }
